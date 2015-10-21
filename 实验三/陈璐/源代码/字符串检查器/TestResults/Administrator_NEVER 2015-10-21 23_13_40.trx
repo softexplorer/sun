@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="8ea7fa56-fa59-49ee-8b17-86d20ce3c734" name="Administrator@NEVER 2015-10-21 23:13:40" runUser="NEVER\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="8f79db0d-99c0-4330-b2f3-6766f5243698">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Administrator_NEVER 2015-10-21 23_13_40">
+      <DeploymentItem filename="E:\learning material\interesting\C#\1\代码\Homework\Homework\bin\Debug\Homework.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-10-21T23:13:40.5057548+08:00" queuing="2015-10-21T23:13:43.6359338+08:00" start="2015-10-21T23:13:44.0569579+08:00" finish="2015-10-21T23:13:45.9020634+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="StringCheckerConstructorTest" storage="e:\learning material\interesting\c#\1\代码\homework\stringcheckertest\bin\debug\stringcheckertest.dll" id="ade5054a-daf8-81e1-f1cc-43b0210bd61f">
+      <Execution id="44c94c04-165d-448c-9353-920faca1f8b9" />
+      <TestMethod codeBase="E:/learning material/interesting/C#/1/代码/Homework/StringCheckerTest/bin/Debug/StringCheckerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="StringCheckerTest.StringCheckerTest, StringCheckerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StringCheckerConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ade5054a-daf8-81e1-f1cc-43b0210bd61f" executionId="44c94c04-165d-448c-9353-920faca1f8b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="44c94c04-165d-448c-9353-920faca1f8b9" testId="ade5054a-daf8-81e1-f1cc-43b0210bd61f" testName="StringCheckerConstructorTest" computerName="NEVER" duration="00:00:00.0143669" startTime="2015-10-21T23:13:44.3359738+08:00" endTime="2015-10-21T23:13:45.7840567+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44c94c04-165d-448c-9353-920faca1f8b9">
+    </UnitTestResult>
+  </Results>
+</TestRun>

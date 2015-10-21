@@ -1,0 +1,26 @@
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.AnaForm.resources
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.Properties.Resources.resources
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.exe
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.pdb
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.exe
+E:\学习文件\课外\C#\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.pdb
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.exe
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.pdb
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.AnaForm.resources
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.Properties.Resources.resources
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.exe
+E:\学习文件\正课\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.pdb
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.exe
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.pdb
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.exe
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.pdb
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.csprojResolveAssemblyReference.cache
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.AnaForm.resources
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.Properties.Resources.resources
+E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\obj\x86\Debug\GrammarAnalysers.csproj.GenerateResource.Cache

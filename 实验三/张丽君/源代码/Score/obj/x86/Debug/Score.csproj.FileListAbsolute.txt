@@ -1,0 +1,5 @@
+d:\my documents\visual studio 2010\Projects\Score\Score\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\my documents\visual studio 2010\Projects\Score\Score\bin\Debug\Score.exe
+d:\my documents\visual studio 2010\Projects\Score\Score\bin\Debug\Score.pdb
+d:\my documents\visual studio 2010\Projects\Score\Score\obj\x86\Debug\Score.exe
+d:\my documents\visual studio 2010\Projects\Score\Score\obj\x86\Debug\Score.pdb

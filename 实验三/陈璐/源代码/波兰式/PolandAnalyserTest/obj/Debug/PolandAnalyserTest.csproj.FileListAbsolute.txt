@@ -1,0 +1,7 @@
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\obj\Debug\PolandAnalyserTest.csprojResolveAssemblyReference.cache
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\bin\Debug\PolandAnalyserTest.dll
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\bin\Debug\PolandAnalyserTest.pdb
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\bin\Debug\GrammarAnalysers.exe
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\bin\Debug\GrammarAnalysers.pdb
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\obj\Debug\PolandAnalyserTest.dll
+E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\obj\Debug\PolandAnalyserTest.pdb

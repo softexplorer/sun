@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="893e7757-c395-4fb7-ac4c-40fce725920a" name="Administrator@NEVER 2015-10-21 22:54:55" runUser="NEVER\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="823f89c3-bacf-42d4-b31a-a1f76034e0a3">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Administrator_NEVER 2015-10-21 22_54_55">
+      <DeploymentItem filename="E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-10-21T22:54:55.3864016+08:00" queuing="2015-10-21T22:54:55.9734352+08:00" start="2015-10-21T22:54:57.3085116+08:00" finish="2015-10-21T22:55:01.4757499+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AnalyseTest" storage="e:\learning material\course\编译原理\代码\grammaranalysers\polandanalysertest\bin\debug\polandanalysertest.dll" id="a1258fff-ff98-fd86-3312-75b93132489e">
+      <Execution id="d2bed1b5-a9db-4239-8ddb-bb06f7633a39" />
+      <TestMethod codeBase="E:/learning material/course/编译原理/代码/GrammarAnalysers/PolandAnalyserTest/bin/Debug/PolandAnalyserTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PolandAnalyserTest.PolandAnalyserTest, PolandAnalyserTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AnalyseTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a1258fff-ff98-fd86-3312-75b93132489e" executionId="d2bed1b5-a9db-4239-8ddb-bb06f7633a39" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d2bed1b5-a9db-4239-8ddb-bb06f7633a39" testId="a1258fff-ff98-fd86-3312-75b93132489e" testName="AnalyseTest" computerName="NEVER" duration="00:00:01.4297459" startTime="2015-10-21T22:54:57.6765326+08:00" endTime="2015-10-21T22:55:01.0747270+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d2bed1b5-a9db-4239-8ddb-bb06f7633a39">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;4&amp;28&amp;87&amp;6*+75-*8/&gt;. Actual:&lt;4&amp;28&amp;87&amp;6*+75-*8/
+237.5&gt;. </Message>
+          <StackTrace>   at PolandAnalyserTest.PolandAnalyserTest.AnalyseTest() in E:\learning material\course\编译原理\代码\GrammarAnalysers\PolandAnalyserTest\PolandAnalyserTest.cs:line 80
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

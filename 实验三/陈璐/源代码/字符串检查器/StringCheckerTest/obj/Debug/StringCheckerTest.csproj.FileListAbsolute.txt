@@ -1,0 +1,7 @@
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\bin\Debug\StringCheckerTest.dll
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\bin\Debug\StringCheckerTest.pdb
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\bin\Debug\Homework.exe
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\bin\Debug\Homework.pdb
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\obj\Debug\StringCheckerTest.csprojResolveAssemblyReference.cache
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\obj\Debug\StringCheckerTest.dll
+E:\learning material\interesting\C#\1\代码\Homework\StringCheckerTest\obj\Debug\StringCheckerTest.pdb

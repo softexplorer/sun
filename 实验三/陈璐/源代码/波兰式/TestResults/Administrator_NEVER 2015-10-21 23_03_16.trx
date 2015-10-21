@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fcb0ff64-10c5-4fab-971f-b743add72b6e" name="Administrator@NEVER 2015-10-21 23:03:16" runUser="NEVER\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="823f89c3-bacf-42d4-b31a-a1f76034e0a3">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Administrator_NEVER 2015-10-21 23_03_16">
+      <DeploymentItem filename="E:\learning material\course\编译原理\代码\GrammarAnalysers\GrammarAnalysers\bin\Debug\GrammarAnalysers.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-10-21T23:03:16.2480493+08:00" queuing="2015-10-21T23:03:16.4030581+08:00" start="2015-10-21T23:03:16.4150588+08:00" finish="2015-10-21T23:03:17.2521067+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AnalyseTest" storage="e:\learning material\course\编译原理\代码\grammaranalysers\polandanalysertest\bin\debug\polandanalysertest.dll" id="a1258fff-ff98-fd86-3312-75b93132489e">
+      <Execution id="22b36cd9-a966-4454-89a4-7a9df0d60107" />
+      <TestMethod codeBase="E:/learning material/course/编译原理/代码/GrammarAnalysers/PolandAnalyserTest/bin/Debug/PolandAnalyserTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PolandAnalyserTest.PolandAnalyserTest, PolandAnalyserTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AnalyseTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a1258fff-ff98-fd86-3312-75b93132489e" executionId="22b36cd9-a966-4454-89a4-7a9df0d60107" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="22b36cd9-a966-4454-89a4-7a9df0d60107" testId="a1258fff-ff98-fd86-3312-75b93132489e" testName="AnalyseTest" computerName="NEVER" duration="00:00:00.0171928" startTime="2015-10-21T23:03:16.4370601+08:00" endTime="2015-10-21T23:03:17.1050983+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="22b36cd9-a966-4454-89a4-7a9df0d60107">
+    </UnitTestResult>
+  </Results>
+</TestRun>

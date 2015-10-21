@@ -1,0 +1,4 @@
+G:\软件工程\实验3\cj\cj\bin\Debug\cj.exe
+G:\软件工程\实验3\cj\cj\bin\Debug\cj.pdb
+G:\软件工程\实验3\cj\cj\obj\x86\Debug\cj.exe
+G:\软件工程\实验3\cj\cj\obj\x86\Debug\cj.pdb

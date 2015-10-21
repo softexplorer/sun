@@ -1,0 +1,17 @@
+d:\documents\visual studio 2010\Projects\Homework\Homework\bin\Debug\Homework.exe
+d:\documents\visual studio 2010\Projects\Homework\Homework\bin\Debug\Homework.pdb
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\Homework.Form1.resources
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\Homework.Properties.Resources.resources
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\GenerateResource.read.1.tlog
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\GenerateResource.write.1.tlog
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\Homework.exe
+d:\documents\visual studio 2010\Projects\Homework\Homework\obj\x86\Debug\Homework.pdb
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.exe
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.pdb
+E:\learning material\interesting\C#\1\代码\Homework\Homework\bin\Debug\Homework.exe
+E:\learning material\interesting\C#\1\代码\Homework\Homework\bin\Debug\Homework.pdb
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.Form1.resources
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.Properties.Resources.resources
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.csproj.GenerateResource.Cache
+E:\learning material\interesting\C#\1\代码\Homework\Homework\obj\x86\Debug\Homework.csprojResolveAssemblyReference.cache

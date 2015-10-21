@@ -1,0 +1,7 @@
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\bin\Debug\AgeText.dll
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\bin\Debug\AgeText.pdb
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\bin\Debug\软件测试2.exe
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\bin\Debug\软件测试2.pdb
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\obj\Debug\AgeText.csprojResolveAssemblyReference.cache
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\obj\Debug\AgeText.dll
+D:\大三实验\软件工程\实验3\软件测试2\AgeText\obj\Debug\AgeText.pdb

@@ -1,0 +1,7 @@
+G:\软件工程\实验3\cj\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+G:\软件工程\实验3\cj\TestProject1\bin\Debug\TestProject1.dll
+G:\软件工程\实验3\cj\TestProject1\bin\Debug\TestProject1.pdb
+G:\软件工程\实验3\cj\TestProject1\bin\Debug\cj.exe
+G:\软件工程\实验3\cj\TestProject1\bin\Debug\cj.pdb
+G:\软件工程\实验3\cj\TestProject1\obj\Debug\TestProject1.dll
+G:\软件工程\实验3\cj\TestProject1\obj\Debug\TestProject1.pdb
