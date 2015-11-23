@@ -1,0 +1,62 @@
+<mockup version="1.0" skin="sketch" measuredW="784" measuredH="644" mockupW="306" mockupH="626">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="468" y="8" w="306" h="626" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <topBar>false</topBar>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::ComboBox" x="511" y="207" w="-1" h="-1" measuredW="64" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>2013</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="585" y="208" w="-1" h="-1" measuredW="48" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::ComboBox" x="648" y="208" w="-1" h="-1" measuredW="48" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>25</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="511" y="281" w="-1" h="-1" measuredW="40" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>8</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::ComboBox" x="585" y="280" w="-1" h="-1" measuredW="71" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>miss%20li</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="511" y="169" w="50" h="25" measuredW="38" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>time%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Title" x="551" y="132" w="-1" h="-1" measuredW="119" measuredH="62" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Witer</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="511" y="250" w="-1" h="-1" measuredW="33" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>NO%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="587" y="247" w="-1" h="-1" measuredW="53" measuredH="25" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>teacher</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid" x="499" y="321" w="243" h="179" measuredW="239" measuredH="178" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hLines>true</hLines>
+        <selectedIndex>4</selectedIndex>
+        <text>Num%2C%20Name%2C%20course%2Csign%0A097%2C%20cl%2C%20computer%2C%5Bx%5D%0A102%2C%20cj%2C%20computer%2C%5Bx%5D%0A107%2C%20xyx%2Ccomputer%2C%5Bx%5D%0A141%2C%20zlj%2C%20computer%2C%5Bx%5D%0A145%2C%20x%2C%20%20computer%2C%5B%5D</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
