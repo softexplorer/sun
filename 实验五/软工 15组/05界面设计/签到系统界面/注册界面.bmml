@@ -40,17 +40,17 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="529" y="428" w="-1" h="-1" measuredW="58" measuredH="28" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="514" y="425" w="-1" h="-1" measuredW="76" measuredH="28" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>finish</text>
+        <text>register</text>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::RadioButton" x="461" y="396" w="-1" h="-1" measuredW="68" measuredH="22" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::RadioButton" x="461" y="396" w="-1" h="-1" measuredW="69" measuredH="22" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>student</text>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::RadioButton" x="574" y="396" w="-1" h="-1" measuredW="55" measuredH="22" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::RadioButton" x="575" y="396" w="-1" h="-1" measuredW="55" measuredH="22" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>admin</text>
       </controlProperties>
