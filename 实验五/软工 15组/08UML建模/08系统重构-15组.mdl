@@ -78,6 +78,24 @@
 	exportControl 	"Public"
 	global     	TRUE
 	logical_models 	(list unit_reference_list
+	    (object Class "签到汇总者"
+		quid       	"566049F803AC"
+		stereotype 	"Actor")
+	    (object Class "签到者"
+		quid       	"56604D4B01EC"
+		stereotype 	"Actor")
+	    (object UseCase "管理签到平台"
+		quid       	"56604A110018")
+	    (object UseCase "签到"
+		quid       	"56604D570291")
+	    (object UseCase "管理个人信息"
+		quid       	"56604D6C00E9")
+	    (object UseCase "发送附加信息"
+		quid       	"56604E5C03A2")
+	    (object UseCase "管理签到名单"
+		quid       	"56604F34034B")
+	    (object UseCase "获取签到统计"
+		quid       	"56604F3E018C")
 	    (object Class_Category "wifi签到软件服务端"
 		quid       	"564F1D690009"
 		exportControl 	"Public"
@@ -134,7 +152,7 @@
 			    quid       	"564F1DC80314"
 			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::初始化"
 			    supplier_quidu 	"564F1DB40282"
-			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::"
+			    client     	"$UNNAMED$0"
 			    client_quidu 	"564F1DA802DE"
 			    sendEvent  	(object sendEvent
 				quid       	"564F1DC80317"))
@@ -161,7 +179,7 @@
 			    quid       	"564F1EBB02EA"
 			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::初始化"
 			    supplier_quidu 	"564F1DB40282"
-			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::"
+			    client     	"$UNNAMED$0"
 			    client_quidu 	"564F1DA802DE"
 			    sendEvent  	(object sendEvent
 				quid       	"564F1EBB02ED"))
@@ -982,7 +1000,21 @@
 				    supplier   	@18
 				    line_style 	0
 				    x_offset   	FALSE)))))
-		logical_presentations 	(list unit_reference_list)))
+		logical_presentations 	(list unit_reference_list))
+	    (object Class_Category "用户用例"
+		quid       	"566049BD0399"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list
+		    (object UseCaseDiagram "签到用例"
+			quid       	"566049EA03DC"
+			title      	"签到用例"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list)))))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
 		quid       	"4F12618201B6"
@@ -992,7 +1024,207 @@
 		max_width  	21600
 		origin_x   	0
 		origin_y   	0
-		items      	(list diagram_item_list))))
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Use Case View::签到汇总者" @39
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1443, 875)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@39
+			    location   	(1443, 1035)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	325
+			    justify    	0
+			    label      	"签到汇总者")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"566049F803AC"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UseCaseView "Use Case View::管理签到平台" @40
+			location   	(1921, 531)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@40
+			    location   	(1921, 669)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"管理签到平台")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604A110018"
+			height     	118)
+		    (object ClassView "Class" "Use Case View::签到者" @41
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(367, 978)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@41
+			    location   	(367, 1138)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	328
+			    justify    	0
+			    label      	"签到者")
+			icon       	"Actor"
+			icon_style 	"Icon"
+			line_color 	3342489
+			quidu      	"56604D4B01EC"
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UseCaseView "Use Case View::签到" @42
+			location   	(778, 615)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@42
+			    location   	(778, 753)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"签到")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604D570291"
+			height     	118)
+		    (object UseCaseView "Use Case View::管理个人信息" @43
+			location   	(731, 937)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@43
+			    location   	(731, 1075)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"管理个人信息")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604D6C00E9"
+			height     	118)
+		    (object UseCaseView "Use Case View::发送附加信息" @44
+			location   	(750, 1306)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@44
+			    location   	(750, 1444)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"发送附加信息")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604E5C03A2"
+			height     	118)
+		    (object UseCaseView "Use Case View::管理签到名单" @45
+			location   	(1919, 784)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@45
+			    location   	(1919, 922)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"管理签到名单")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604F34034B"
+			height     	118)
+		    (object UseCaseView "Use Case View::获取签到统计" @46
+			location   	(1912, 1050)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@46
+			    location   	(1912, 1188)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"获取签到统计")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"56604F3E018C"
+			height     	118)))))
     root_category 	(object Class_Category "Logical View"
 	quid       	"4F12617C0204"
 	exportControl 	"Public"
