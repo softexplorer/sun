@@ -1,0 +1,5 @@
+E:\learning material\interesting\C#\WiterServer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\learning material\interesting\C#\WiterServer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\learning material\interesting\C#\WiterServer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\learning material\interesting\C#\WiterServer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+E:\learning material\interesting\C#\WiterServer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

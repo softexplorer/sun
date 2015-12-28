@@ -78,24 +78,6 @@
 	exportControl 	"Public"
 	global     	TRUE
 	logical_models 	(list unit_reference_list
-	    (object Class "签到汇总者"
-		quid       	"566049F803AC"
-		stereotype 	"Actor")
-	    (object Class "签到者"
-		quid       	"56604D4B01EC"
-		stereotype 	"Actor")
-	    (object UseCase "管理签到平台"
-		quid       	"56604A110018")
-	    (object UseCase "签到"
-		quid       	"56604D570291")
-	    (object UseCase "管理个人信息"
-		quid       	"56604D6C00E9")
-	    (object UseCase "发送附加信息"
-		quid       	"56604E5C03A2")
-	    (object UseCase "管理签到名单"
-		quid       	"56604F34034B")
-	    (object UseCase "获取签到统计"
-		quid       	"56604F3E018C")
 	    (object Class_Category "wifi签到软件服务端"
 		quid       	"564F1D690009"
 		exportControl 	"Public"
@@ -129,12 +111,15 @@
 			    quid       	"564F1F3C00BD")
 			(object ActivityState "回送接收信息"
 			    quid       	"564F1F9D01D5")
-			(object ActivityState "显示完成信息"
+			(object ActivityState "显示信息"
 			    quid       	"564F1FE400B2")
 			(object ActivityState "读取表格"
 			    quid       	"564F200800F9")
 			(object ActivityState "显示表格"
-			    quid       	"564F20700133"))
+			    quid       	"564F20700133")
+			(object State "回送服务端信息"
+			    quid       	"567E9A0C0230"
+			    type       	"Normal"))
 		    partitions 	(list Partitions
 			(object Partition "服务端"
 			    quid       	"564F1E4701C7"
@@ -223,10 +208,13 @@
 				quid       	"564F1F3A0105"))
 			(object State_Transition
 			    quid       	"564F1F590261"
+			    label      	""
 			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::存入表格"
 			    supplier_quidu 	"564F1F3C00BD"
 			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::处理信息"
 			    client_quidu 	"564F1F330044"
+			    Event      	(object Event "签到信息"
+				quid       	"567E991E010B")
 			    sendEvent  	(object sendEvent
 				quid       	"564F1F590264"))
 			(object State_Transition
@@ -239,7 +227,7 @@
 				quid       	"564F1FAB02CC"))
 			(object State_Transition
 			    quid       	"564F1FED0351"
-			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::显示完成信息"
+			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::显示信息"
 			    supplier_quidu 	"564F1FE400B2"
 			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::回送接收信息"
 			    client_quidu 	"564F1F9D01D5"
@@ -293,7 +281,34 @@
 			    Event      	(object Event "查看完毕"
 				quid       	"564F208801E2")
 			    sendEvent  	(object sendEvent
-				quid       	"564F208801E4")))
+				quid       	"564F208801E4"))
+			(object State_Transition
+			    quid       	"567E9A1E0118"
+			    label      	""
+			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::回送服务端信息"
+			    supplier_quidu 	"567E9A0C0230"
+			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::处理信息"
+			    client_quidu 	"564F1F330044"
+			    Event      	(object Event "请求信息"
+				quid       	"567E9A1E0119")
+			    sendEvent  	(object sendEvent
+				quid       	"567E9A1E011B"))
+			(object State_Transition
+			    quid       	"567E9A3C0316"
+			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::显示信息"
+			    supplier_quidu 	"564F1FE400B2"
+			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::回送服务端信息"
+			    client_quidu 	"567E9A0C0230"
+			    sendEvent  	(object sendEvent
+				quid       	"567E9A3C0319"))
+			(object State_Transition
+			    quid       	"567E9A4A0334"
+			    supplier   	"Use Case View::wifi签到软件服务端::State/Activity Model::显示信息"
+			    supplier_quidu 	"564F1FE400B2"
+			    client     	"Use Case View::wifi签到软件服务端::State/Activity Model::发送信息"
+			    client_quidu 	"564F1EFB030B"
+			    sendEvent  	(object sendEvent
+				quid       	"567E9A4A0337")))
 		    objectflows 	(list objectflow_list)
 		    statediagrams 	(list StateDiagrams
 			(object ActivityDiagram "wifi签到软件使用"
@@ -303,7 +318,7 @@
 			    max_height 	28350
 			    max_width  	21600
 			    origin_x   	0
-			    origin_y   	0
+			    origin_y   	512
 			    items      	(list diagram_item_list
 				(object Swimlane "服务端" @1
 				    line_color 	3342489
@@ -311,7 +326,7 @@
 				    width      	1450)
 				(object StateView "StartState" "$UNNAMED$0" @2
 				    Parent_View 	@1
-				    location   	(250, 197)
+				    location   	(247, 117)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -323,7 +338,7 @@
 					default_color 	TRUE)
 				    label      	(object ItemLabel
 					Parent_View 	@2
-					location   	(292, 167)
+					location   	(289, 87)
 					nlines     	2
 					max_width  	600
 					label      	"")
@@ -333,7 +348,7 @@
 				    autoResize 	TRUE)
 				(object ActivityStateView "初始化" @3
 				    Parent_View 	@1
-				    location   	(249, 603)
+				    location   	(249, 432)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -345,7 +360,7 @@
 					default_color 	TRUE)
 				    label      	(object ItemLabel
 					Parent_View 	@3
-					location   	(249, 606)
+					location   	(249, 435)
 					fill_color 	13434879
 					anchor_loc 	1
 					nlines     	2
@@ -369,7 +384,7 @@
 				    x_offset   	FALSE)
 				(object ActivityStateView "载入表格信息" @5
 				    Parent_View 	@1
-				    location   	(793, 603)
+				    location   	(793, 432)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -381,7 +396,7 @@
 					default_color 	TRUE)
 				    label      	(object ItemLabel
 					Parent_View 	@5
-					location   	(793, 606)
+					location   	(793, 435)
 					fill_color 	13434879
 					anchor_loc 	1
 					nlines     	2
@@ -407,7 +422,7 @@
 					default_color 	TRUE)
 				    label      	(object SegLabel @7
 					Parent_View 	@6
-					location   	(521, 559)
+					location   	(521, 388)
 					font       	(object Font
 					    size       	12
 					    face       	"Arial"
@@ -434,7 +449,7 @@
 				    x_offset   	FALSE)
 				(object StateView "EndState" "$UNNAMED$1" @8
 				    Parent_View 	@1
-				    location   	(1273, 802)
+				    location   	(1273, 631)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -446,7 +461,7 @@
 					default_color 	TRUE)
 				    label      	(object ItemLabel
 					Parent_View 	@8
-					location   	(1327, 760)
+					location   	(1327, 589)
 					nlines     	2
 					max_width  	600
 					label      	"")
@@ -456,7 +471,7 @@
 				    autoResize 	TRUE)
 				(object ActivityStateView "等待" @9
 				    Parent_View 	@1
-				    location   	(793, 803)
+				    location   	(793, 632)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -468,7 +483,7 @@
 					default_color 	TRUE)
 				    label      	(object ItemLabel
 					Parent_View 	@9
-					location   	(793, 806)
+					location   	(793, 635)
 					fill_color 	13434879
 					anchor_loc 	1
 					nlines     	2
@@ -490,9 +505,7 @@
 				    supplier   	@9
 				    line_style 	0
 				    x_offset   	FALSE)
-				(object ActivityStateView "接收信息" @11
-				    Parent_View 	@1
-				    location   	(789, 1026)
+				(object TransView "" @11
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -502,443 +515,9 @@
 					strike     	FALSE
 					color      	0
 					default_color 	TRUE)
-				    label      	(object ItemLabel
+				    label      	(object SegLabel @12
 					Parent_View 	@11
-					location   	(789, 1029)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"接收信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1F2503BD"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object ActivityStateView "处理信息" @12
-				    Parent_View 	@1
-				    location   	(787, 1246)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@12
-					location   	(787, 1249)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"处理信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1F330044"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @13
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1F3A0102"
-				    client     	@11
-				    supplier   	@12
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "存入表格" @14
-				    Parent_View 	@1
-				    location   	(787, 1443)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@14
-					location   	(787, 1446)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"存入表格")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1F3C00BD"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @15
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1F590261"
-				    client     	@12
-				    supplier   	@14
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "回送接收信息" @16
-				    Parent_View 	@1
-				    location   	(787, 1664)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@16
-					location   	(787, 1667)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"回送接收信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1F9D01D5"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @17
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1FAB02C9"
-				    client     	@14
-				    supplier   	@16
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "读取表格" @18
-				    Parent_View 	@1
-				    location   	(262, 1055)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@18
-					location   	(262, 1058)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"读取表格")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F200800F9"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object ActivityStateView "显示表格" @19
-				    Parent_View 	@1
-				    location   	(262, 1284)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@19
-					location   	(262, 1287)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"显示表格")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F20700133"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object Swimlane "客户端" @20
-				    location   	(1450, 0)
-				    line_color 	3342489
-				    quidu      	"564F1E4D01D8"
-				    width      	1206)
-				(object ActivityStateView "初始化" @21
-				    Parent_View 	@20
-				    location   	(1857, 416)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@21
-					location   	(1857, 419)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"初始化")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1DB40282"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @22
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1EBB02EA"
-				    client     	@2
-				    supplier   	@21
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "载入wifi信息" @23
-				    Parent_View 	@20
-				    location   	(1855, 751)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@23
-					location   	(1855, 754)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"载入wifi信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1ED503C3"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @24
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1EE40093"
-				    client     	@21
-				    supplier   	@23
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "发送信息" @25
-				    Parent_View 	@20
-				    location   	(1852, 1025)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@25
-					location   	(1852, 1028)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"发送信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1EFB030B"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @26
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object SegLabel @27
-					Parent_View 	@26
-					location   	(1898, 889)
-					font       	(object Font
-					    size       	12
-					    face       	"Arial"
-					    bold       	FALSE
-					    italics    	FALSE
-					    underline  	FALSE
-					    strike     	FALSE
-					    color      	0
-					    default_color 	TRUE)
-					anchor_loc 	1
-					nlines     	1
-					max_width  	210
-					justify    	0
-					label      	"发送信息"
-					pctDist    	0.500000
-					height     	45
-					orientation 	0)
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1F040203"
-				    client     	@23
-				    supplier   	@25
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object TransView "" @28
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1F2C02A2"
-				    client     	@25
-				    supplier   	@11
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object ActivityStateView "显示完成信息" @29
-				    Parent_View 	@20
-				    location   	(1846, 1253)
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object ItemLabel
-					Parent_View 	@29
-					location   	(1846, 1256)
-					fill_color 	13434879
-					anchor_loc 	1
-					nlines     	2
-					max_width  	261
-					justify    	0
-					label      	"显示完成信息")
-				    icon_style 	"Icon"
-				    line_color 	3342489
-				    fill_color 	13434879
-				    quidu      	"564F1FE400B2"
-				    height     	118
-				    annotation 	1
-				    autoResize 	TRUE)
-				(object TransView "" @30
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F1FED0351"
-				    client     	@16
-				    supplier   	@29
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object Swimlane "" @31
-				    location   	(2656, 0)
-				    line_color 	3342489
-				    width      	450)
-				(object TransView "" @32
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F207503C8"
-				    client     	@18
-				    supplier   	@19
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object TransView "" @33
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object SegLabel @34
-					Parent_View 	@33
-					location   	(531, 1110)
-					font       	(object Font
-					    size       	12
-					    face       	"Arial"
-					    bold       	FALSE
-					    italics    	FALSE
-					    underline  	FALSE
-					    strike     	FALSE
-					    color      	0
-					    default_color 	TRUE)
-					anchor_loc 	1
-					nlines     	1
-					max_width  	210
-					justify    	0
-					label      	"查看完毕"
-					pctDist    	0.422091
-					height     	52
-					orientation 	1)
-				    stereotype 	TRUE
-				    line_color 	3342489
-				    quidu      	"564F208801E1"
-				    client     	@19
-				    supplier   	@9
-				    line_style 	0
-				    x_offset   	FALSE)
-				(object TransView "" @35
-				    font       	(object Font
-					size       	12
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    label      	(object SegLabel @36
-					Parent_View 	@35
-					location   	(1099, 758)
+					location   	(1099, 587)
 					font       	(object Font
 					    size       	12
 					    face       	"Arial"
@@ -963,7 +542,9 @@
 				    supplier   	@8
 				    line_style 	0
 				    x_offset   	FALSE)
-				(object TransView "" @37
+				(object ActivityStateView "接收信息" @13
+				    Parent_View 	@1
+				    location   	(789, 855)
 				    font       	(object Font
 					size       	12
 					face       	"Arial"
@@ -973,9 +554,200 @@
 					strike     	FALSE
 					color      	0
 					default_color 	TRUE)
-				    label      	(object SegLabel @38
-					Parent_View 	@37
-					location   	(425, 901)
+				    label      	(object ItemLabel
+					Parent_View 	@13
+					location   	(789, 858)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"接收信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1F2503BD"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "处理信息" @14
+				    Parent_View 	@1
+				    location   	(787, 1075)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@14
+					location   	(787, 1078)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"处理信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1F330044"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @15
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1F3A0102"
+				    client     	@13
+				    supplier   	@14
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "存入表格" @16
+				    Parent_View 	@1
+				    location   	(503, 1357)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@16
+					location   	(503, 1360)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"存入表格")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1F3C00BD"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @17
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @18
+					Parent_View 	@17
+					location   	(676, 1248)
+					font       	(object Font
+					    size       	12
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	210
+					justify    	0
+					label      	"签到信息"
+					pctDist    	0.500000
+					height     	45
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1F590261"
+				    client     	@14
+				    supplier   	@16
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "回送接收信息" @19
+				    Parent_View 	@1
+				    location   	(1043, 1547)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@19
+					location   	(1043, 1550)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"回送接收信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1F9D01D5"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @20
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1FAB02C9"
+				    client     	@16
+				    supplier   	@19
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "读取表格" @21
+				    Parent_View 	@1
+				    location   	(262, 884)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@21
+					location   	(262, 887)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"读取表格")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F200800F9"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @22
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @23
+					Parent_View 	@22
+					location   	(427, 731)
 					font       	(object Font
 					    size       	12
 					    face       	"Arial"
@@ -997,234 +769,1197 @@
 				    line_color 	3342489
 				    quidu      	"564F201502D2"
 				    client     	@9
-				    supplier   	@18
+				    supplier   	@21
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "显示表格" @24
+				    Parent_View 	@1
+				    location   	(262, 1113)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@24
+					location   	(262, 1116)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"显示表格")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F20700133"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @25
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F207503C8"
+				    client     	@21
+				    supplier   	@24
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @26
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @27
+					Parent_View 	@26
+					location   	(530, 939)
+					font       	(object Font
+					    size       	12
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	210
+					justify    	0
+					label      	"查看完毕"
+					pctDist    	0.422091
+					height     	52
+					orientation 	1)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F208801E1"
+				    client     	@24
+				    supplier   	@9
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "Normal" "回送服务端信息" @28
+				    Parent_View 	@1
+				    location   	(1047, 1315)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@28
+					location   	(1047, 1310)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	204
+					justify    	0
+					label      	"回送服务端信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"567E9A0C0230"
+				    height     	134
+				    autoResize 	TRUE)
+				(object Swimlane "客户端" @29
+				    location   	(1450, 0)
+				    line_color 	3342489
+				    quidu      	"564F1E4D01D8"
+				    width      	1206)
+				(object ActivityStateView "初始化" @30
+				    Parent_View 	@29
+				    location   	(1857, 245)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@30
+					location   	(1857, 248)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"初始化")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1DB40282"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "载入wifi信息" @31
+				    Parent_View 	@29
+				    location   	(1855, 580)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@31
+					location   	(1855, 583)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"载入wifi信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1ED503C3"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @32
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1EE40093"
+				    client     	@30
+				    supplier   	@31
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "发送信息" @33
+				    Parent_View 	@29
+				    location   	(1852, 854)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@33
+					location   	(1852, 857)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"发送信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1EFB030B"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @34
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @35
+					Parent_View 	@34
+					location   	(1898, 718)
+					font       	(object Font
+					    size       	12
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	210
+					justify    	0
+					label      	"发送信息"
+					pctDist    	0.500000
+					height     	45
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1F040203"
+				    client     	@31
+				    supplier   	@33
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @36
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1F2C02A2"
+				    client     	@33
+				    supplier   	@13
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "显示信息" @37
+				    Parent_View 	@29
+				    location   	(1849, 1313)
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@37
+					location   	(1849, 1316)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	261
+					justify    	0
+					label      	"显示信息")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"564F1FE400B2"
+				    height     	118
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @38
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"564F1FED0351"
+				    client     	@19
+				    supplier   	@37
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object Swimlane "" @39
+				    location   	(2656, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @40
+				    font       	(object Font
+					size       	12
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @41
+					Parent_View 	@40
+					location   	(942, 1159)
+					font       	(object Font
+					    size       	12
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor_loc 	1
+					nlines     	1
+					max_width  	210
+					justify    	0
+					label      	"请求信息"
+					pctDist    	0.500000
+					height     	45
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"567E9A1E0118"
+				    client     	@14
+				    supplier   	@28
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @42
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"567E9A3C0316"
+				    client     	@28
+				    supplier   	@37
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @43
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"567E9A4A0334"
+				    client     	@33
+				    supplier   	@37
 				    line_style 	0
 				    x_offset   	FALSE)))))
 		logical_presentations 	(list unit_reference_list))
 	    (object Class_Category "用户用例"
 		quid       	"566049BD0399"
 		exportControl 	"Public"
-		logical_models 	(list unit_reference_list)
+		logical_models 	(list unit_reference_list
+		    (object Class "签到汇总者"
+			quid       	"566049F803AC"
+			stereotype 	"Actor")
+		    (object Class "签到者"
+			quid       	"56604D4B01EC"
+			stereotype 	"Actor")
+		    (object UseCase "发送附加信息"
+			quid       	"56604E5C03A2")
+		    (object UseCase "管理个人信息"
+			quid       	"56604D6C00E9")
+		    (object UseCase "管理签到名单"
+			quid       	"56604F34034B")
+		    (object UseCase "管理签到平台"
+			quid       	"56604A110018")
+		    (object UseCase "获取签到统计"
+			quid       	"56604F3E018C")
+		    (object UseCase "签到"
+			quid       	"56604D570291")
+		    (object UseCase "发起签到"
+			quid       	"567E98B800D1")
+		    (object Association "$UNNAMED$2"
+			quid       	"567E98B30207"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$3"
+				quid       	"567E98B303BF"
+				supplier   	"Use Case View::用户用例::签到"
+				quidu      	"56604D570291"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$4"
+				quid       	"567E98B303C1"
+				supplier   	"Use Case View::用户用例::签到者"
+				quidu      	"56604D4B01EC")))
+		    (object Association "$UNNAMED$5"
+			quid       	"567E98B500B3"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$6"
+				quid       	"567E98B5018F"
+				supplier   	"Use Case View::用户用例::管理个人信息"
+				quidu      	"56604D6C00E9"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$7"
+				quid       	"567E98B50191"
+				supplier   	"Use Case View::用户用例::签到者"
+				quidu      	"56604D4B01EC")))
+		    (object Association "$UNNAMED$8"
+			quid       	"567E98B60261"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$9"
+				quid       	"567E98B603AB"
+				supplier   	"Use Case View::用户用例::发送附加信息"
+				quidu      	"56604E5C03A2"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$10"
+				quid       	"567E98B603AD"
+				supplier   	"Use Case View::用户用例::签到者"
+				quidu      	"56604D4B01EC")))
+		    (object Association "$UNNAMED$11"
+			quid       	"567E98BE022F"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$12"
+				quid       	"567E98BF0081"
+				supplier   	"Use Case View::用户用例::发起签到"
+				quidu      	"567E98B800D1"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$13"
+				quid       	"567E98BF0083"
+				supplier   	"Use Case View::用户用例::签到汇总者"
+				quidu      	"566049F803AC")))
+		    (object Association "$UNNAMED$14"
+			quid       	"567E98C00275"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$15"
+				quid       	"567E98C100A9"
+				supplier   	"Use Case View::用户用例::管理签到平台"
+				quidu      	"56604A110018"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$16"
+				quid       	"567E98C100AB"
+				supplier   	"Use Case View::用户用例::签到汇总者"
+				quidu      	"566049F803AC")))
+		    (object Association "$UNNAMED$17"
+			quid       	"567E98C80329"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$18"
+				quid       	"567E98C90045"
+				supplier   	"Use Case View::用户用例::管理签到名单"
+				quidu      	"56604F34034B"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$19"
+				quid       	"567E98C90047"
+				supplier   	"Use Case View::用户用例::签到汇总者"
+				quidu      	"566049F803AC")))
+		    (object Association "$UNNAMED$20"
+			quid       	"567E98CA021B"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$21"
+				quid       	"567E98CA0347"
+				supplier   	"Use Case View::用户用例::获取签到统计"
+				quidu      	"56604F3E018C"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$22"
+				quid       	"567E98CA0349"
+				supplier   	"Use Case View::用户用例::签到汇总者"
+				quidu      	"566049F803AC"))))
 		logical_presentations 	(list unit_reference_list
 		    (object UseCaseDiagram "签到用例"
-			quid       	"566049EA03DC"
+			quid       	"4F12618201B6"
 			title      	"签到用例"
 			zoom       	100
 			max_height 	28350
 			max_width  	21600
 			origin_x   	0
 			origin_y   	0
-			items      	(list diagram_item_list)))))
+			items      	(list diagram_item_list
+			    (object UseCaseView "Use Case View::用户用例::签到" @44
+				location   	(778, 615)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@44
+				    location   	(778, 753)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"签到")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604D570291"
+				height     	118)
+			    (object UseCaseView "Use Case View::用户用例::管理个人信息" @45
+				location   	(731, 937)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@45
+				    location   	(731, 1075)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"管理个人信息")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604D6C00E9"
+				height     	118)
+			    (object UseCaseView "Use Case View::用户用例::发送附加信息" @46
+				location   	(750, 1306)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@46
+				    location   	(750, 1444)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"发送附加信息")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604E5C03A2"
+				height     	118)
+			    (object ClassView "Class" "Use Case View::用户用例::签到者" @47
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				location   	(367, 978)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@47
+				    location   	(367, 1138)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	325
+				    justify    	0
+				    label      	"签到者")
+				icon       	"Actor"
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"56604D4B01EC"
+				annotation 	8
+				autoResize 	TRUE)
+			    (object AssociationViewNew "$UNNAMED$2" @48
+				location   	(566, 797)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98B30207"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$3" @49
+					Parent_View 	@48
+					location   	(199, -181)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B303BF"
+					client     	@48
+					supplier   	@44
+					line_style 	0)
+				    (object RoleView "$UNNAMED$4" @50
+					Parent_View 	@48
+					location   	(199, -181)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B303C1"
+					client     	@48
+					supplier   	@47
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$5" @51
+				location   	(521, 957)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98B500B3"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$6" @52
+					Parent_View 	@51
+					location   	(154, -21)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B5018F"
+					client     	@51
+					supplier   	@45
+					line_style 	0)
+				    (object RoleView "$UNNAMED$7" @53
+					Parent_View 	@51
+					location   	(154, -21)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B50191"
+					client     	@51
+					supplier   	@47
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$8" @54
+				location   	(553, 1136)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98B60261"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$9" @55
+					Parent_View 	@54
+					location   	(186, 158)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B603AB"
+					client     	@54
+					supplier   	@46
+					line_style 	0)
+				    (object RoleView "$UNNAMED$10" @56
+					Parent_View 	@54
+					location   	(186, 158)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98B603AD"
+					client     	@54
+					supplier   	@47
+					line_style 	0)))
+			    (object UseCaseView "Use Case View::用户用例::发起签到" @57
+				location   	(1991, 315)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@57
+				    location   	(1991, 453)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"发起签到")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"567E98B800D1"
+				height     	118)
+			    (object UseCaseView "Use Case View::用户用例::管理签到平台" @58
+				location   	(2010, 618)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@58
+				    location   	(2010, 756)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"管理签到平台")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604A110018"
+				height     	118)
+			    (object UseCaseView "Use Case View::用户用例::管理签到名单" @59
+				location   	(2000, 906)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@59
+				    location   	(2000, 1044)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"管理签到名单")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604F34034B"
+				height     	118)
+			    (object UseCaseView "Use Case View::用户用例::获取签到统计" @60
+				location   	(1999, 1259)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@60
+				    location   	(1999, 1397)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	630
+				    justify    	0
+				    label      	"获取签到统计")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"56604F3E018C"
+				height     	118)
+			    (object ClassView "Class" "Use Case View::用户用例::签到汇总者" @61
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				location   	(1443, 875)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@61
+				    location   	(1443, 1035)
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	325
+				    justify    	0
+				    label      	"签到汇总者")
+				icon       	"Actor"
+				icon_style 	"Icon"
+				line_color 	3342489
+				quidu      	"566049F803AC"
+				annotation 	8
+				autoResize 	TRUE)
+			    (object AssociationViewNew "$UNNAMED$11" @62
+				location   	(1691, 616)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98BE022F"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$12" @63
+					Parent_View 	@62
+					location   	(248, -259)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98BF0081"
+					client     	@62
+					supplier   	@57
+					line_style 	0)
+				    (object RoleView "$UNNAMED$13" @64
+					Parent_View 	@62
+					location   	(248, -259)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98BF0083"
+					client     	@62
+					supplier   	@61
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$14" @65
+				location   	(1677, 766)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98C00275"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$15" @66
+					Parent_View 	@65
+					location   	(234, -109)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98C100A9"
+					client     	@65
+					supplier   	@58
+					line_style 	0)
+				    (object RoleView "$UNNAMED$16" @67
+					Parent_View 	@65
+					location   	(234, -109)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98C100AB"
+					client     	@65
+					supplier   	@61
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$17" @68
+				location   	(1694, 886)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98C80329"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$18" @69
+					Parent_View 	@68
+					location   	(251, 11)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98C90045"
+					client     	@68
+					supplier   	@59
+					line_style 	0)
+				    (object RoleView "$UNNAMED$19" @70
+					Parent_View 	@68
+					location   	(251, 11)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98C90047"
+					client     	@68
+					supplier   	@61
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$20" @71
+				location   	(1708, 1057)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567E98CA021B"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$21" @72
+					Parent_View 	@71
+					location   	(265, 182)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98CA0347"
+					client     	@71
+					supplier   	@60
+					line_style 	0)
+				    (object RoleView "$UNNAMED$22" @73
+					Parent_View 	@71
+					location   	(265, 182)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567E98CA0349"
+					client     	@71
+					supplier   	@61
+					line_style 	0)))))))
+	    (object Class_Category "数据库对象"
+		quid       	"567B581E005D"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "Student"
+			quid       	"567B585B0138"
+			operations 	(list Operations
+			    (object Operation "Student"
+				quid       	"567B58690345"
+				parameters 	(list Parameters
+				    (object Parameter "stu_Number"
+					quid       	"567B5CC902B5"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "Stu_Number"
+				quid       	"567B58C3033C"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Stu_Name"
+				quid       	"567B58D90144"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Extra"
+				quid       	"567B5B4402D0"
+				type       	"String"
+				exportControl 	"Public")))
+		    (object Class "Course"
+			quid       	"567B5C7403D8"
+			operations 	(list Operations
+			    (object Operation "Course"
+				quid       	"567B5C860005"
+				parameters 	(list Parameters
+				    (object Parameter "course_Number"
+					quid       	"567B5C8F0224"
+					type       	"String"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "Course_Number"
+				quid       	"567B5CEB0395"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Course_Name"
+				quid       	"567B5CF700AD"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Course_Message"
+				quid       	"567B5D020075"
+				type       	"String"
+				exportControl 	"Public")))
+		    (object Class "Record"
+			quid       	"567B5D1A0175"
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "Stu_Number"
+				quid       	"567B5D24005D"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Course_Number"
+				quid       	"567B5D36033D"
+				type       	"String"
+				exportControl 	"Public")
+			    (object ClassAttribute "Register_Time"
+				quid       	"567B5D3F003B"
+				type       	"Date")))
+		    (object Association "$UNNAMED$23"
+			quid       	"567B5D5F0010"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$24"
+				quid       	"567B5D5F00EB"
+				supplier   	"Use Case View::数据库对象::Student"
+				quidu      	"567B585B0138"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$25"
+				quid       	"567B5D5F00ED"
+				supplier   	"Use Case View::数据库对象::Record"
+				quidu      	"567B5D1A0175")))
+		    (object Association "$UNNAMED$26"
+			quid       	"567B5D610136"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$27"
+				quid       	"567B5D6102B8"
+				supplier   	"Use Case View::数据库对象::Course"
+				quidu      	"567B5C7403D8"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$28"
+				quid       	"567B5D6102BA"
+				supplier   	"Use Case View::数据库对象::Record"
+				quidu      	"567B5D1A0175"))))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "DBInstance"
+			quid       	"567B584E021D"
+			title      	"DBInstance"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "Use Case View::数据库对象::Student" @74
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(881, 337)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@74
+				    location   	(536, 179)
+				    fill_color 	13434879
+				    nlines     	1
+				    max_width  	690
+				    justify    	0
+				    label      	"Student")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"567B585B0138"
+				width      	708
+				height     	344
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Use Case View::数据库对象::Course" @75
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				ShowOperationSignature 	TRUE
+				location   	(884, 1378)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@75
+				    location   	(508, 1220)
+				    fill_color 	13434879
+				    nlines     	1
+				    max_width  	752
+				    justify    	0
+				    label      	"Course")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"567B5C7403D8"
+				width      	770
+				height     	344
+				annotation 	8
+				autoResize 	TRUE)
+			    (object ClassView "Class" "Use Case View::数据库对象::Record" @76
+				ShowCompartmentStereotypes 	TRUE
+				IncludeAttribute 	TRUE
+				IncludeOperation 	TRUE
+				location   	(881, 834)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@76
+				    location   	(593, 701)
+				    fill_color 	13434879
+				    nlines     	1
+				    max_width  	576
+				    justify    	0
+				    label      	"Record")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"567B5D1A0175"
+				width      	594
+				height     	294
+				annotation 	8
+				autoResize 	TRUE)
+			    (object AssociationViewNew "$UNNAMED$23" @77
+				location   	(881, 597)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567B5D5F0010"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$24" @78
+					Parent_View 	@77
+					location   	(-28, -222)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567B5D5F00EB"
+					client     	@77
+					supplier   	@74
+					line_style 	0)
+				    (object RoleView "$UNNAMED$25" @79
+					Parent_View 	@77
+					location   	(-28, -222)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567B5D5F00ED"
+					client     	@77
+					supplier   	@76
+					line_style 	0)))
+			    (object AssociationViewNew "$UNNAMED$26" @80
+				location   	(881, 1093)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"567B5D610136"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$27" @81
+					Parent_View 	@80
+					location   	(-28, 274)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567B5D6102B8"
+					client     	@80
+					supplier   	@75
+					line_style 	0)
+				    (object RoleView "$UNNAMED$28" @82
+					Parent_View 	@80
+					location   	(-28, 274)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"567B5D6102BA"
+					client     	@80
+					supplier   	@76
+					line_style 	0))))))))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
-		quid       	"4F12618201B6"
+		quid       	"567E991E0082"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
 		origin_y   	0
-		items      	(list diagram_item_list
-		    (object ClassView "Class" "Use Case View::签到汇总者" @39
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(1443, 875)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@39
-			    location   	(1443, 1035)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	325
-			    justify    	0
-			    label      	"签到汇总者")
-			icon       	"Actor"
-			icon_style 	"Icon"
-			line_color 	3342489
-			quidu      	"566049F803AC"
-			annotation 	8
-			autoResize 	TRUE)
-		    (object UseCaseView "Use Case View::管理签到平台" @40
-			location   	(1921, 531)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@40
-			    location   	(1921, 669)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"管理签到平台")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604A110018"
-			height     	118)
-		    (object ClassView "Class" "Use Case View::签到者" @41
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(367, 978)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@41
-			    location   	(367, 1138)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	328
-			    justify    	0
-			    label      	"签到者")
-			icon       	"Actor"
-			icon_style 	"Icon"
-			line_color 	3342489
-			quidu      	"56604D4B01EC"
-			annotation 	8
-			autoResize 	TRUE)
-		    (object UseCaseView "Use Case View::签到" @42
-			location   	(778, 615)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@42
-			    location   	(778, 753)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"签到")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604D570291"
-			height     	118)
-		    (object UseCaseView "Use Case View::管理个人信息" @43
-			location   	(731, 937)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@43
-			    location   	(731, 1075)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"管理个人信息")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604D6C00E9"
-			height     	118)
-		    (object UseCaseView "Use Case View::发送附加信息" @44
-			location   	(750, 1306)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@44
-			    location   	(750, 1444)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"发送附加信息")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604E5C03A2"
-			height     	118)
-		    (object UseCaseView "Use Case View::管理签到名单" @45
-			location   	(1919, 784)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@45
-			    location   	(1919, 922)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"管理签到名单")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604F34034B"
-			height     	118)
-		    (object UseCaseView "Use Case View::获取签到统计" @46
-			location   	(1912, 1050)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@46
-			    location   	(1912, 1188)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"获取签到统计")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"56604F3E018C"
-			height     	118)))))
+		items      	(list diagram_item_list))))
     root_category 	(object Class_Category "Logical View"
 	quid       	"4F12617C0204"
 	exportControl 	"Public"

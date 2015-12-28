@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="学号"
+        android:id="@+id/tvwNumber"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="姓名"
+        android:id="@+id/tvwName"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/tvwNumber"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/edtNumber"
+        android:layout_alignTop="@+id/tvwNumber"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/edtName"
+        android:layout_alignTop="@+id/tvwName"
+        android:layout_alignRight="@+id/edtNumber"
+        android:layout_alignEnd="@+id/edtNumber" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="签到"
+        android:id="@+id/btnSendMessage"
+        android:layout_alignTop="@+id/btnConnect"
+        android:layout_alignRight="@+id/edtName"
+        android:layout_alignEnd="@+id/edtName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvwReturnMessage"
+        android:layout_above="@+id/btnSendMessage"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接"
+        android:id="@+id/btnConnect"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/edtName"
+        android:layout_alignStart="@+id/edtName"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvwInfo"
+        android:layout_above="@+id/edtNumber"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
